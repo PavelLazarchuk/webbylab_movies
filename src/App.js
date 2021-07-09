@@ -8,7 +8,9 @@ import PrivateRoute from 'components/PrivateRoute';
 import AppLayout from 'components/layout/AppLayout';
 const Page401 = lazy(() => import('./pages/Page401'));
 const Page404 = lazy(() => import('./pages/Page404'));
+const MoviePage = lazy(() => import('./pages/app/MoviePage'));
 const LoginPage = lazy(() => import('./pages/auth/LoginPage'));
+const MoviesPage = lazy(() => import('./pages/app/MoviesPage'));
 const RegisterPage = lazy(() => import('./pages/auth/RegisterPage'));
 
 const App = ({ user, isAuth }) => {
@@ -17,6 +19,15 @@ const App = ({ user, isAuth }) => {
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
           <Switch>
+            <PrivateRoute exact path="/movies" user={user} isAuth={isAuth} component={MoviesPage} />
+            <PrivateRoute
+              exact
+              user={user}
+              isAuth={isAuth}
+              path="/movies/:id"
+              component={MoviePage}
+            />
+
             <Route exact path="/" render={props => <LoginPage {...props} />} />
             <Route exact path="/login" render={props => <LoginPage {...props} />} />
             <Route exact path="/registration" render={props => <RegisterPage {...props} />} />

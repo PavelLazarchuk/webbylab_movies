@@ -28,20 +28,8 @@
   text-align: center;
 }
 
-.margin-10 {
-  margin-bottom: 10px;
-}
-
 .margin-20 {
   margin-bottom: 20px;
-}
-
-.margin-30 {
-  margin-bottom: 30px;
-}
-
-.margin-40 {
-  margin-bottom: 40px;
 }
 
 .header-color {
@@ -65,4 +53,8 @@
 
 .nav-link:hover {
   color: #e3e3e3;
+}
+
+.input-width {
+  max-width: 300px;
 }

@@ -5,7 +5,9 @@ import Page401 from 'pages/Page401';
 const PrivateRoute = ({ component: Component, user, isAuth, ...rest }) => (
   <Route
     {...rest}
-    render={props => (!!isAuth && !!user?.email ? <Component {...props} /> : <Page401 />)}
+    render={props =>
+      !!isAuth && !!user?.email ? <Component {...props} /> : <Page401 {...props} />
+    }
   />
 );
 
