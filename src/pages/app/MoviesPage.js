@@ -74,11 +74,7 @@ const MoviesPage = ({
         />
       </Row>
       <AddMovieModal addMovie={addMovie} handleCancel={hideModal} isOpen={showAddMovieModal} />
-      <MoviesList
-        movies={movies}
-        moviesStore={moviesStore}
-        deleteMovieRequest={deleteMovieRequest}
-      />
+      <MoviesList movies={movies} deleteMovieRequest={deleteMovieRequest} />
     </PageLayout>
   );
 };

@@ -5,13 +5,13 @@ import { useHistory } from 'react-router-dom';
 import MovieItem from './MovieItem';
 import DeleteMovieModal from 'components/modals/DeleteMovie';
 
-const Movies = ({ movies, moviesStore, deleteMovieRequest }) => {
+const Movies = ({ movies, deleteMovieRequest }) => {
   const history = useHistory();
   const [deleteData, setDeleteData] = useState({});
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const deleteMovie = id => () => {
-    deleteMovieRequest(id, moviesStore);
+    deleteMovieRequest(id);
     setDeleteData({});
     setShowDeleteModal(false);
   };

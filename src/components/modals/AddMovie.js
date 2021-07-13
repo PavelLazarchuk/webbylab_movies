@@ -2,8 +2,8 @@ import React from 'react';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { Modal, Input, Form, InputNumber, Select, Button, Space } from 'antd';
 
-import { REQUIRED_RULE } from 'utils/formRules';
 import { MOVIE_FORMATS } from 'utils/constants';
+import { REQUIRED_RULE, MOVIE_TITLE_RULE, NAME_RULE } from 'utils/formRules';
 
 const AddMovie = ({ addMovie, isOpen, handleCancel }) => {
   const [form] = Form.useForm();
@@ -37,7 +37,7 @@ const AddMovie = ({ addMovie, isOpen, handleCancel }) => {
           actors: [],
         }}
       >
-        <Form.Item label="Title" name="title" rules={REQUIRED_RULE}>
+        <Form.Item label="Title" name="title" rules={MOVIE_TITLE_RULE}>
           <Input placeholder="title" />
         </Form.Item>
         <Form.Item label="Year" name="year" rules={REQUIRED_RULE}>
@@ -63,7 +63,7 @@ const AddMovie = ({ addMovie, isOpen, handleCancel }) => {
                     label="First Name"
                     name={[field.name, 'firstName']}
                     fieldKey={[field.fieldKey, 'firstName']}
-                    rules={REQUIRED_RULE}
+                    rules={NAME_RULE()}
                   >
                     <Input />
                   </Form.Item>
@@ -72,7 +72,7 @@ const AddMovie = ({ addMovie, isOpen, handleCancel }) => {
                     label="Last Name"
                     name={[field.name, 'lastName']}
                     fieldKey={[field.fieldKey, 'lastName']}
-                    rules={REQUIRED_RULE}
+                    rules={NAME_RULE('last')}
                   >
                     <Input />
                   </Form.Item>

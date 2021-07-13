@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Button } from 'antd';
+import { Button, message } from 'antd';
 
 const style = { marginRight: 10 };
 const ImportMovies = ({ importMovies }) => {
@@ -14,6 +14,9 @@ const ImportMovies = ({ importMovies }) => {
     setFile(null);
   };
   const onChangeFile = e => {
+    if (e.target.files[0]?.type !== 'text/plain') {
+      return message.error('Only files of type - text/plain (.txt)');
+    }
     setFile(e.target.files);
   };
 

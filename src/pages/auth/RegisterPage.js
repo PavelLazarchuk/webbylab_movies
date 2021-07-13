@@ -5,7 +5,7 @@ import { Typography, Input, Button, Form } from 'antd';
 
 import PageLayout from 'components/layout/PageLayout';
 import { registerUserRequest } from 'store/auth/actions';
-import { REQUIRED_RULE, EMAIL_RULE } from 'utils/formRules';
+import { PASSWORD_RULE, FULLNAME_RULE, EMAIL_RULE } from 'utils/formRules';
 
 const RegisterPage = ({ registerUserRequest }) => {
   const history = useHistory();
@@ -24,13 +24,13 @@ const RegisterPage = ({ registerUserRequest }) => {
         <Form.Item name="email" rules={EMAIL_RULE}>
           <Input size="large" placeholder="email" />
         </Form.Item>
-        <Form.Item name="name" rules={REQUIRED_RULE}>
+        <Form.Item name="name" rules={FULLNAME_RULE}>
           <Input size="large" placeholder="name" />
         </Form.Item>
-        <Form.Item name="password" rules={REQUIRED_RULE}>
+        <Form.Item name="password" rules={PASSWORD_RULE}>
           <Input.Password size="large" placeholder="password" />
         </Form.Item>
-        <Form.Item name="confirmPassword" rules={REQUIRED_RULE}>
+        <Form.Item name="confirmPassword" rules={PASSWORD_RULE}>
           <Input.Password size="large" placeholder="confirm password" />
         </Form.Item>
 

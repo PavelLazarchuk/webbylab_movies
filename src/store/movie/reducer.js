@@ -8,11 +8,12 @@ import {
 } from './types';
 
 const initialState = {
+  total: 0,
   movies: [],
   movie: null,
 };
 
-export default function authReducer(state = initialState, action) {
+export default function movieReducer(state = initialState, action) {
   switch (action.type) {
     case CLEAR_MOVIE:
       return {
@@ -29,25 +30,29 @@ export default function authReducer(state = initialState, action) {
     case GET_MOVIES:
       return {
         ...state,
-        movies: action.payload,
+        movies: action.payload.data,
+        total: action.payload.total,
       };
 
     case CREATE_MOVIE:
       return {
         ...state,
+        total: state.total + 1,
         movies: [...state.movies, action.payload],
       };
 
     case IMPORT_MOVIES:
       return {
         ...state,
-        movies: [...state.movies, ...action.payload],
+        total: action.payload.total,
+        movies: [...state.movies, ...action.payload.data],
       };
 
     case DELETE_MOVIE:
       return {
         ...state,
         movies: action.payload,
+        total: state.total - 1,
       };
 
     default:

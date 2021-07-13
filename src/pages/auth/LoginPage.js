@@ -5,7 +5,7 @@ import { Typography, Input, Button, Form } from 'antd';
 
 import PageLayout from 'components/layout/PageLayout';
 import { loginUserRequest } from 'store/auth/actions';
-import { REQUIRED_RULE, EMAIL_RULE } from 'utils/formRules';
+import { PASSWORD_RULE, EMAIL_RULE } from 'utils/formRules';
 
 const LoginPage = ({ loginUserRequest }) => {
   const history = useHistory();
@@ -21,7 +21,7 @@ const LoginPage = ({ loginUserRequest }) => {
         <Form.Item name="email" rules={EMAIL_RULE}>
           <Input size="large" placeholder="email" />
         </Form.Item>
-        <Form.Item name="password" rules={REQUIRED_RULE}>
+        <Form.Item name="password" rules={PASSWORD_RULE}>
           <Input.Password size="large" placeholder="password" />
         </Form.Item>
         <Button type="primary" htmlType="submit">
